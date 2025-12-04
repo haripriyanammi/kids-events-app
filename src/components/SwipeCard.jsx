@@ -6,15 +6,17 @@ function SwipeCard({ event, onSwipe }) {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
+      console.log("left swipe detected");
       setSwipeDirection("left");
       setTimeout(() => onSwipe("left", event), 300);
     },
     onSwipedRight: () => {
+      console.log("right swipe detected");
       setSwipeDirection("right");
       setTimeout(() => onSwipe("right", event), 300);
     },
+    trackMouse: true, // VERY IMPORTANT for laptop dragging
     preventScrollOnSwipe: true,
-    trackMouse: true,
   });
 
   return (
@@ -28,9 +30,7 @@ function SwipeCard({ event, onSwipe }) {
       <p className="text-gray-600 mt-2">📅 {event.date}</p>
       <p className="text-gray-600">📍 {event.location}</p>
 
-      <p className="mt-4 text-gray-500">
-        Swipe ➡ to Register | Swipe ⬅ to Reject
-      </p>
+      <p className="mt-4 text-gray-500">Swipe ➡ to Register | Swipe ⬅ to Reject</p>
     </div>
   );
 }
