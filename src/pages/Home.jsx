@@ -1,3 +1,7 @@
+
+import EventCard from "../components/EventCard";
+import sampleEvents from "../data/sampleEvents";
+
 function Home() {
   return (
     <div className="max-w-5xl mx-auto mt-6">
