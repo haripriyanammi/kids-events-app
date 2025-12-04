@@ -1,7 +1,6 @@
 
 import EventCard from "../components/EventCard";
 import sampleEvents from "../data/sampleEvents";
-
 function Home() {
   return (
     <div className="max-w-5xl mx-auto mt-6">
@@ -16,7 +15,17 @@ function Home() {
       {/* Events Section */}
       <div>
         <h2 className="text-2xl font-semibold mb-4">Available Events</h2>
-        <p className="text-gray-500">Events will show here...</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {sampleEvents.map((event) => (
+            <EventCard
+              key={event.id}
+              title={event.title}
+              date={event.date}
+              location={event.location}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
