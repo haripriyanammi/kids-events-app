@@ -1,6 +1,8 @@
 
 import EventCard from "../components/EventCard";
 import sampleEvents from "../data/sampleEvents";
+import SwipeCard from "../components/SwipeCard";
+
 function Home() {
   return (
     <div className="max-w-5xl mx-auto mt-6">
@@ -30,6 +32,12 @@ function Home() {
     </div>
   );
 }
+
+{/* Swipe Feature (Test View) */}
+<div className="mt-10">
+  <h2 className="text-2xl font-semibold mb-4">Swipe Mode Preview</h2>
+  <SwipeCard event={sampleEvents[0]} />
+</div>
 
 export default Home;
 
