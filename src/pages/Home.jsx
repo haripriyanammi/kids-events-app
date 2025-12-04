@@ -4,6 +4,16 @@ import sampleEvents from "../data/sampleEvents";
 import SwipeCard from "../components/SwipeCard";
 
 function Home() {
+
+  // 👍 handleSwipe should be INSIDE the Home component
+  const handleSwipe = (direction, event) => {
+    if (direction === "right") {
+      console.log("Registered for:", event.title);
+    } else if (direction === "left") {
+      console.log("Rejected:", event.title);
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto mt-6">
       {/* Hero Section */}
@@ -29,15 +39,14 @@ function Home() {
           ))}
         </div>
       </div>
+
+      {/* Swipe Feature */}
+      <div className="mt-10">
+        <h2 className="text-2xl font-semibold mb-4">Swipe Mode Preview</h2>
+        <SwipeCard event={sampleEvents[0]} onSwipe={handleSwipe} />
+      </div>
     </div>
   );
 }
 
-{/* Swipe Feature (Test View) */}
-<div className="mt-10">
-  <h2 className="text-2xl font-semibold mb-4">Swipe Mode Preview</h2>
-  <SwipeCard event={sampleEvents[0]} />
-</div>
-
 export default Home;
-
