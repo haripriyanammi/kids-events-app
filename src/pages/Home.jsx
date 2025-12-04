@@ -1,11 +1,9 @@
-
 import EventCard from "../components/EventCard";
 import sampleEvents from "../data/sampleEvents";
 import SwipeCard from "../components/SwipeCard";
 
 function Home() {
 
-  // 👍 handleSwipe should be INSIDE the Home component
   const handleSwipe = (direction, event) => {
     if (direction === "right") {
       console.log("Registered for:", event.title);
@@ -41,9 +39,12 @@ function Home() {
       </div>
 
       {/* Swipe Feature */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-semibold mb-4">Swipe Mode Preview</h2>
-        <SwipeCard event={sampleEvents[0]} onSwipe={handleSwipe} />
+      <div className="mt-10 flex justify-center">
+        {sampleEvents.map((event, index) => (
+          <div className="-mt-4" key={event.id}>
+            <SwipeCard event={event} onSwipe={handleSwipe} />
+          </div>
+        ))}
       </div>
     </div>
   );
